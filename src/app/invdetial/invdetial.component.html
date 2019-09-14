@@ -1,0 +1,46 @@
+<div class="contain" nz-row>
+    <div  nz-row>
+      <div nz-col  nzSpan="18" class="contain_left">
+            <h1>我是标题</h1>
+            <div style="border:  1px solid #a7bfe8;width: 100%;">我是内容</div>
+            <div [hidden]="isCanReply">要回复问题请先<a routerLink="/login">登录或注册</a> </div>
+            <div [hidden]="!isCanReply" style="padding: 10px 0px 0px 0px;border: 1px solid brown"><nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
+              <nz-avatar
+                nz-comment-avatar
+                nzIcon="user"
+                nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+              ></nz-avatar>
+              <nz-comment-content>
+                <p>
+                  We supply a series of design principles, practical patterns and high quality design resources (Sketch and
+                  Axure), to help people create their product prototypes beautifully and efficiently.
+                </p>
+              </nz-comment-content>
+              <nz-comment-action>
+                <i
+                  nz-tooltip
+                  nzTitle="Like"
+                  nz-icon
+                  nzType="like"
+                  [theme]="likes > 0 ? 'twotone' : 'outline'"
+                  (click)="like()"
+                ></i>
+                <span class="count like">{{ likes }}</span>
+              </nz-comment-action>
+              <nz-comment-action>Reply to</nz-comment-action>
+            </nz-comment></div>
+      </div>
+      <div nz-col nzSpan="6" class="contain_right" >
+           <h3 style="padding: 30px 0 0 0;">发起人</h3>
+           <span>
+             <img src="https://elasticsearch.cn/static/common/avatar-mid-img.png" style="height: 32px;width: 32px"/>
+             五小白</span>
+           <div>
+             <p>问题状态
+             <p>最新活动: 1 天前
+             <p>浏览: 44
+             <p>关注: 1 人
+           </div>
+      </div>
+    </div>
+</div>

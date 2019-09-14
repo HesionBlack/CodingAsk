@@ -1,0 +1,7 @@
+.contain{
+  margin: 0 12%;
+}
+.contain_right{
+  padding-left: 10px;
+  border-left: 1px solid  pink;
+}
