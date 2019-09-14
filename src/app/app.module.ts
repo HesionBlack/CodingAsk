@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { AppComponent } from './app.component';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
@@ -11,6 +12,7 @@ import zh from '@angular/common/locales/zh';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { IndexComponent } from './index/index.component';
 
 registerLocaleData(zh);
 
@@ -18,7 +20,8 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NzIconModule
+
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

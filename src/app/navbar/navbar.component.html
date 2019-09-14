@@ -1,1 +1,46 @@
-<p>navbar works!</p>
+<ul nz-menu nzMode="horizontal" style="text-align: center">
+  <li nz-menu-item nzSelected>
+    <i nz-icon nzType="up" nzTheme="outline"></i>
+    CodingAsk
+  </li>
+  <li nz-menu-item >
+    <i nz-icon nzType="windows" nzTheme="outline"></i>
+    首页
+  </li>
+
+  <li nz-menu-item >
+    <i nz-icon nzType="select" nzTheme="outline"></i>
+    JAVA基础
+  </li>
+  <li nz-menu-item >
+    <i nz-icon nzType="select" nzTheme="outline"></i>
+   Spring全家桶
+  </li>
+  <li nz-menu-item >
+    <i nz-icon nzType="select" nzTheme="outline"></i>
+    Mybatis
+  </li>
+  <li nz-menu-item >
+    <i nz-icon nzType="plus-circle" nzTheme="outline"></i>
+    发帖
+  </li>
+  <li nz-menu-item [hidden]="isShow">
+    <i nz-icon nzType="login" nzTheme="outline"></i>
+    登录
+  </li>
+
+  <li nz-submenu nzTitle="我" nzIcon="setting" [hidden]="!isShow">
+    <ul>
+        <ul>
+          <li nz-menu-item>
+            <i nz-icon nzType="user-add" nzTheme="outline"></i>
+            个人中心
+          </li>
+          <li nz-menu-item>
+            <i nz-icon nzType="logout" nzTheme="outline"></i>
+            退出
+          </li>
+        </ul>
+    </ul>
+  </li>
+</ul>
