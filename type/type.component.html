@@ -4,7 +4,7 @@
     <div class="content_title" >
       <div nz-col nzSpan="22" style="padding: 4px 2px;">
         <i nz-icon nzType="ordered-list" nzTheme="outline"></i>
-        <h3 style="display: inline;margin-left: 2px;">全部</h3>
+        <h3 style="display: inline;margin-left: 2px;">{{Invtype}}</h3>
       </div>
       <div nz-col nzSpan="2" style="padding: 4px 2px;">
         <button  nz-button nzType="primary" (click)="pushInvitation()">发帖</button>
@@ -15,7 +15,7 @@
         <img src='{{inv.imgurl}}' nz-col nzSpan="4" style="padding:3px;display:inline;width:50px;height: 50px;"/>
         <span nz-col nzSpan="20">
           <h3 ><a routerLink='/invdetail/{{inv.id}}'>{{inv.title}}</a></h3>
-          <p nz-col nzSpan="20"> 发帖时间:{{inv.releasetime}}</p>
+          <p nz-col nzSpan="20">帖子描述</p>
           <a nz-col nzSpan="4" style="color:#666;" routerLink='/invdetail/{{inv.id}}'>查看详情</a>
         </span>
       </div>
@@ -23,7 +23,7 @@
   </div>
   <div nz-col nzSpan="6" style="height: 300px;">
     <div nz-col nzSpan="6">
-        热门话题
+      热门话题
     </div>
   </div>
 </div>

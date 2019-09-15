@@ -4,6 +4,7 @@ import {HttpRequestService} from '../../services/http-request.service';
 import { Router } from '@angular/router';
 import { SessionstorgeService } from '../session/sessionstorge.service';
 import {Invitation} from '../invitation';
+import {error} from 'util';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +39,6 @@ export class LoginComponent implements OnInit {
     if (this.forModel.valid) {
       this.httpRequest.httpPost(this.url, this.userMsg).then(data => {
         console.log('loginCmp:' );
-        console.log(data.message);
         if (data.message === 'success' ) {
             this.sessionSession.setSession('id', data.data.id);
             this.sessionSession.setSession('username', data.data.username);
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         } else {
           this.isFail = false;
           this.loginFailMsg = '用户名或者密码错误,登录失败,请重新登录';
-         }
+        }
 
       });
     }
