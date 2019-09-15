@@ -12,11 +12,19 @@ import {reply} from '../../entity/reply';
 export class InvdetailComponent implements OnInit {
   private InvId: number;
   private invDetial: Invitation;
-  private replyInfo: reply[]=[];
-  private
+  private replyInfo: reply[] = [];
+
   isCanReply = false;
   time: any;
-  likes: number = 2;
+  CanReply = true;
+
+  data: any[] = [];
+  submitting = false;
+  user = {
+    author: 'Han Solo',
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
+  };
+  inputValue = '';
   constructor(private routerInfo: ActivatedRoute,
               private httpRequest: HttpRequestService) { }
 
@@ -37,7 +45,9 @@ export class InvdetailComponent implements OnInit {
   }
 
   like() {
-
+    // const  url = '/api/reply/reply/like/' + this.InvId;
+    // this.likes = this.likes + 1;
+    // this.httpRequest.httpGet(url);
   }
   isLogin() {
     if (sessionStorage.length !== 0) {
@@ -51,5 +61,9 @@ export class InvdetailComponent implements OnInit {
       this.replyInfo = data.data;
       console.log(this.replyInfo);
     });
+  }
+
+  handleSubmit(): void {
+    console.log('------');
   }
 }
