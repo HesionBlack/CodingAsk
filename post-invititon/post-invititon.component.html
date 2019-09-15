@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+<!--  标题-->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">标题</nz-form-label>
+    <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+      <input nz-input formControlName="title" id="title" />
+    </nz-form-control>
+  </nz-form-item>
+<!--  内容-->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="content" nzRequired>帖子内容</nz-form-label>
+
+
+
+  </nz-form-item>
+<!--  按钮发表-->
+  <nz-form-item nz-row class="commit-area">
+    <nz-form-control [nzSpan]="14" [nzOffset]="6">
+      <button nz-button nzType="primary">发表</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

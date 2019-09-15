@@ -1,0 +1,27 @@
+
+    <ul nz-menu nzMode="horizontal">
+      <li nz-menu-item >
+        <i nz-icon nzType="up" nzTheme="outline"></i>
+        CodingAsk
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="book" nzTheme="outline"></i>
+        <a routerLink="/index" style="display: inline">首页</a>
+      </li>
+      <li nz-menu-item [hidden]="isShow">
+        <i nz-icon nzType="book" nzTheme="outline"></i>
+        <a style="display: inline" routerLink="/login">登录</a>
+      </li>
+
+      <li nz-submenu nzTitle="我" nzIcon="login" [hidden]="!isShow">
+        <ul>
+          <ul>
+            <li nz-menu-item>个人中心</li>
+            <hr>
+            <li nz-menu-item (click)="doLogOut()">退出</li>
+
+          </ul>
+        </ul>
+      </li>
+    </ul>
+
