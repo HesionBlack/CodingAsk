@@ -4,4 +4,5 @@ export class Invitation {
   desc: string;
   imgurl: string;
   releasetime: any;
+  content: any;
 }

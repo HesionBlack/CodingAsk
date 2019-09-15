@@ -5,20 +5,20 @@
   </li>
   <li nz-menu-item >
     <i nz-icon nzType="windows" nzTheme="outline"></i>
-    <span routerLink="index">首页</span>
+    <span routerLink="/index">首页</span>
   </li>
 
   <li nz-menu-item >
     <i nz-icon nzType="select" nzTheme="outline"></i>
-    <span routerLinkActive="/type/1">JAVA基础</span>
+    <a style="display: inline;" (click)="swichpage(1)">JAVA基础</a>
   </li>
   <li nz-menu-item >
     <i nz-icon nzType="select" nzTheme="outline"></i>
-    <span routerLinkActive="/type/2">Spring全家桶</span>
+    <a style="display: inline;" (click)="swichpage(2)">Spring全家桶</a>
   </li>
   <li nz-menu-item >
     <i nz-icon nzType="select" nzTheme="outline"></i>
-    <span routerLinkActive="/type/3">Mybatis</span>
+    <a style="display: inline;" (click)="swichpage(3)">Mybatis</a>
   </li>
   <li nz-menu-item [hidden]="isShow">
     <i nz-icon nzType="login" nzTheme="outline"></i>
@@ -40,3 +40,4 @@
     </ul>
   </li>
 </ul>
+<router-outlet></router-outlet>
