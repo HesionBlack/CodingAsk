@@ -4,16 +4,15 @@
       <h1>{{invDetial[0].title}}</h1>
       <div style="border:  1px solid #a7bfe8;width: 100%;">{{invDetial[0].content}}</div>
       <div [hidden]="isCanReply">要回复问题请先<a routerLink="/login">登录或注册</a> </div>
-      <div [hidden]="!isCanReply" style="padding: 10px 0px 0px 0px;border: 1px solid brown"><nz-comment nzAuthor="Han Solo" [nzDatetime]="time">
+      <div [hidden]="!isCanReply" *ngFor="let reply of replyInfo " style="padding: 10px 0px 0px 0px;border: 1px solid brown"><nz-comment nzAuthor="{{reply.user.username}}" [nzDatetime]="time">
         <nz-avatar
           nz-comment-avatar
           nzIcon="user"
-          nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+          nzSrc="{{reply.user.avatarUrl}}"
         ></nz-avatar>
         <nz-comment-content>
           <p>
-            We supply a series of design principles, practical patterns and high quality design resources (Sketch and
-            Axure), to help people create their product prototypes beautifully and efficiently.
+            {{reply.content}}
           </p>
         </nz-comment-content>
         <nz-comment-action>
@@ -31,7 +30,7 @@
       </nz-comment></div>
     </div>
     <div nz-col nzSpan="6" class="contain_right" >
-      <h3 style="padding: 30px 0 0 0;">发起人</h3>
+      <h3 style="padding: 30px 0 0 0;">帖子发布者</h3>
       <span>
              <img src='{{invDetial[0].imgurl}}' style="height: 32px;width: 32px"/>
              {{invDetial[0].author}}</span>

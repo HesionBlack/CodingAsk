@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 import {HttpRequestService} from '../../services/http-request.service';
 import {Invitation} from '../invitation';
+import {reply} from '../../entity/reply';
 
 @Component({
   selector: 'app-invdetail',
@@ -9,8 +10,10 @@ import {Invitation} from '../invitation';
   styleUrls: ['./invdetail.component.css']
 })
 export class InvdetailComponent implements OnInit {
-  private productId: number;
+  private InvId: number;
   private invDetial: Invitation;
+  private replyInfo: reply[]=[];
+  private
   isCanReply = false;
   time: any;
   likes: number = 2;
@@ -18,12 +21,13 @@ export class InvdetailComponent implements OnInit {
               private httpRequest: HttpRequestService) { }
 
   ngOnInit() {
-    this.routerInfo.params.subscribe((params: Params) => this.productId = params['id'])
+    this.routerInfo.params.subscribe((params: Params) => this.InvId = params['id'])
     this.getInvDetial();
+    this.getReply();
     this.isLogin();
   }
   getInvDetial() {
-    const  url = '/api/invs/invdetail/' + this.productId;
+    const  url = '/api/invs/invdetail/' + this.InvId;
     console.log(url);
     this.httpRequest.httpGet(url).then(data => {
       console.log(data.data);
@@ -39,5 +43,13 @@ export class InvdetailComponent implements OnInit {
     if (sessionStorage.length !== 0) {
       this.isCanReply = true;
     }
+  }
+  getReply() {
+    const url = '/api/reply/reply/' + this.InvId;
+    this.httpRequest.httpGet(url).then(data => {
+      console.log(data.data);
+      this.replyInfo = data.data;
+      console.log(this.replyInfo);
+    });
   }
 }
