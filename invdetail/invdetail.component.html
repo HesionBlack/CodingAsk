@@ -2,10 +2,11 @@
   <div  nz-row>
     <div nz-col  nzSpan="18" class="contain_left">
       <h1>{{invDetial[0].title}}</h1>
+      <p>发帖时间:{{invDetial[0].releasetime| date:'yyyy-MM-dd HH:mm:ss'}}</p>
       <div style="border:  1px solid #a7bfe8;width: 100%;height: 500px;">{{invDetial[0].content}}</div>
-      <nz-list *ngIf="data.length" [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+      <nz-list *ngIf="data.length" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
         <ng-template #item let-item>
-          <nz-comment [nzAuthor]="item.author" [nzDatetime]="item.displayTime">
+          <nz-comment [nzAuthor]="item.author">
             <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="item.avatar"></nz-avatar>
             <nz-comment-content>
               <p>{{ item.content }}</p>
@@ -13,7 +14,7 @@
           </nz-comment>
         </ng-template>
       </nz-list>
-      <nz-comment>
+      <nz-comment [hidden]="!isCanReply">
         <nz-avatar nz-comment-avatar nzIcon="user" [nzSrc]="user.avatar"></nz-avatar>
         <nz-comment-content>
           <nz-form-item>
@@ -50,7 +51,7 @@
           <span class="count like">{{ reply.like }}</span>
         </nz-comment-action>
         <nz-comment-action>Reply to</nz-comment-action>
-        <span > 回复时间：{{ reply.replytime }}</span>
+        <span > 回复时间：{{ reply.replytime | date:'yyyy-MM-dd HH:mm:ss'}}</span>
       </nz-comment></div>
     </div>
     <div nz-col nzSpan="6" class="contain_right" >

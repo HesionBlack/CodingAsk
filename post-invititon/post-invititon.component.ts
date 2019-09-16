@@ -24,8 +24,6 @@ export class PostInvititonComponent implements OnInit {
     });
   }
 
-  keyupHandler(event) {
-    console.log(event);
 
-  }
+
 }

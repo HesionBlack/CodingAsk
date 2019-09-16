@@ -3,8 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpRequestService} from '../../services/http-request.service';
 import { Router } from '@angular/router';
 import { SessionstorgeService } from '../session/sessionstorge.service';
-import {Invitation} from '../invitation';
-import {error} from 'util';
+import {Md5} from 'ts-md5';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
   doLogin() {
     this.userMsg = {
       username: this.forModel.value.username,
-      password: this.forModel.value.password
+      password: Md5.hashStr(this.forModel.value.password)
     }
     if (this.forModel.valid) {
       this.httpRequest.httpPost(this.url, this.userMsg).then(data => {
@@ -54,5 +53,9 @@ export class LoginComponent implements OnInit {
       });
     }
     // console.log(this.forModel.value.password)
+  }
+
+  gotoregister() {
+    this.router.navigateByUrl('/register');
   }
 }

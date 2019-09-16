@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
 <!--  标题-->
   <nz-form-item>
@@ -10,10 +10,8 @@
 <!--  内容-->
   <nz-form-item>
     <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="content" nzRequired>帖子内容</nz-form-label>
-
-
-
-  </nz-form-item>
+    <app-richtext></app-richtext>
+    </nz-form-item>
 <!--  按钮发表-->
   <nz-form-item nz-row class="commit-area">
     <nz-form-control [nzSpan]="14" [nzOffset]="6">
